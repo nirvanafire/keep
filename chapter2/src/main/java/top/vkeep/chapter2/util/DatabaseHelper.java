@@ -50,11 +50,16 @@ public class DatabaseHelper {
      * 获取数据库连接
      */
     public static Connection getConnection() {
-        Connection conn = null;
-        try {
-            conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-        } catch (SQLException e) {
-            LOGGER.error("get connection failure", e);
+        Connection conn = CONNECTION_HOLDER.get();
+        if (conn == null) {
+            try {
+                conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            } catch (SQLException e) {
+                LOGGER.error("get connection failure", e);
+                throw new RuntimeException(e);
+            } finally {
+                CONNECTION_HOLDER.set(conn);
+            }
         }
         return conn;
     }
@@ -62,12 +67,16 @@ public class DatabaseHelper {
     /**
      * 关闭数据库连接
      */
-    public static void closeConnection(Connection conn) {
+    public static void closeConnection() {
+        Connection conn = CONNECTION_HOLDER.get();
         if (conn != null) {
             try {
                 conn.close();
             } catch (SQLException e) {
                 LOGGER.error("close connection failure", e);
+                throw new RuntimeException(e);
+            } finally {
+                CONNECTION_HOLDER.remove();
             }
         }
     }
@@ -75,17 +84,17 @@ public class DatabaseHelper {
     /**
      * 查询实体列表
      */
-    public static <T> List<T> getEntityList(Class<T> entityClass, Connection conn, String sql, Object... params) {
+    public static <T> List<T> getEntityList(Class<T> entityClass, String sql, Object... params) {
         List<T> entityList;
         try {
-            conn = DatabaseHelper.getConnection();
+            Connection conn = getConnection();
             entityList = QUERY_RUNNER.query(conn, sql,
                     new BeanListHandler<T>(entityClass), params);
         } catch (SQLException e) {
             LOGGER.error("query entity list failure", e);
             throw new RuntimeException(e);
         } finally {
-            closeConnection(conn);
+            closeConnection();
         }
         return entityList;
     }

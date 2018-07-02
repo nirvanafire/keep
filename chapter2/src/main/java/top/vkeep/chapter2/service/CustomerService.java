@@ -5,7 +5,6 @@ import org.slf4j.LoggerFactory;
 import top.vkeep.chapter2.model.Customer;
 import top.vkeep.chapter2.util.DatabaseHelper;
 
-import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -26,13 +25,11 @@ public class CustomerService {
      */
     public List<Customer> getCustomerList(String keyword) {
         List<Customer> customerList = new ArrayList<>();
-        Connection conn = null;
         try {
             String sql = "SELECT * FROM customer";
-            conn = DatabaseHelper.getConnection();
-            customerList = DatabaseHelper.getEntityList(Customer.class, conn, sql);
+            customerList = DatabaseHelper.getEntityList(Customer.class, sql);
         } finally {
-            DatabaseHelper.closeConnection(conn);
+            DatabaseHelper.closeConnection();
         }
         return customerList;
     }
