@@ -5,7 +5,11 @@ import org.junit.Before;
 import org.junit.Test;
 import top.vkeep.chapter2.model.Customer;
 import top.vkeep.chapter2.service.CustomerService;
+import top.vkeep.chapter2.util.DatabaseHelper;
 
+import java.io.BufferedReader;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,13 +29,21 @@ public class CustomerServiceTest {
     }
 
     @Before
-    public void init() {
-        // TODO 初始化数据库
+    public void init() throws Exception {
+        String file = "sql/customer_init.sql";
+        // 从当前线程中获取线程上下文的ClassLoader
+        InputStream is = Thread.currentThread().getContextClassLoader().getResourceAsStream(file);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        String sql;
+
+        while ((sql=reader.readLine()) != null) {
+            DatabaseHelper.executeUpdate(sql);
+        }
     }
 
     @Test
     public void getCustomerListTest() {
-        List<Customer> customerList = customerService.getCustomerList("");
+        List<Customer> customerList = customerService.getCustomerList();
         Assert.assertEquals(2, customerList.size());
     }
 

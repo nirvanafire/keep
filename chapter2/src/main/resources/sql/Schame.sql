@@ -9,5 +9,5 @@ CREATE TABLE `customer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 x
 
-INSERT INTO `customer` values (''1'', ''customer1'', ''Jack'', ''13512345678'', ''jack@gmaol.com'', null);
-INSERT INTO `customer` values (''2'', ''customer1'', ''Rose'', ''13612345678'', ''rose@gmaol.com'', null);
+INSERT INTO `customer`(id, name, contact, telephone, email, remark) values (''1'', ''customer1'', ''Jack'', ''13512345678'', ''jack@gmaol.com'', null);
+INSERT INTO `customer`(id, name, contact, telephone, email, remark) values (''2'', ''customer1'', ''Rose'', ''13612345678'', ''rose@gmaol.com'', null);
