@@ -51,14 +51,14 @@ public final class CastUtil {
     /**
      * 转为long型
      */
-    private static long caseLong(Object obj) {
+    public static long caseLong(Object obj) {
         return caseLong(obj, 0);
     }
 
     /**
      * 转为long型（提供默认值）
      */
-    private static long caseLong(Object obj, long defaultValue) {
+    public static long caseLong(Object obj, long defaultValue) {
         long longValue = defaultValue;
         if (obj != null) {
             String strValue = castString(obj);
@@ -76,14 +76,14 @@ public final class CastUtil {
     /**
      * 转为int型
      */
-    private static int caseInt(Object obj) {
+    public static int caseInt(Object obj) {
         return CastUtil.caseInt(obj, 0);
     }
 
     /**
      * 转为int型（提供默认值）
      */
-    private static int caseInt(Object obj, int defaultValue) {
+    public static int caseInt(Object obj, int defaultValue) {
         int intValue = defaultValue;
         if (obj != null) {
             String strValue = castString(obj);
@@ -101,14 +101,14 @@ public final class CastUtil {
     /**
      * 转为boolean型
      */
-    private static boolean caseBoolean(Object obj) {
+    public static boolean caseBoolean(Object obj) {
         return CastUtil.caseBoolean(obj, false);
     }
 
     /**
      * 转为boolean型（提供默认值）
      */
-    private static boolean caseBoolean(Object obj, boolean defaultValue) {
+    public static boolean caseBoolean(Object obj, boolean defaultValue) {
         boolean booleanValue = defaultValue;
         if (obj != null) {
             String strValue = castString(obj);
