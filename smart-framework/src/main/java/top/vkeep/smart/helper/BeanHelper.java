@@ -8,6 +8,7 @@ import java.util.Set;
 
 /**
  * Bean助手类
+ * <p>存放Class和Instance（实例）的映射关系
  * <p>@author: zhourl(zhouronglv@gmail.com)
  * <p>@description: keep
  * <p>@version: v1.0
@@ -20,6 +21,7 @@ public final class BeanHelper {
     private static final Map<Class<?>, Object> BEAN_MAP = new HashMap<>();
 
     static {
+        //  获取所用Service和Controller注解的Bean类
         Set<Class<?>> beanClassSet = ClassHelper.getBeanClassSet();
         for (Class<?> beanClass : beanClassSet) {
             Object obj = ReflectUtil.newInstance(beanClass);

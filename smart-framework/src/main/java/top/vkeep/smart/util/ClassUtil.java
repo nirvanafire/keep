@@ -38,6 +38,7 @@ public final class ClassUtil {
         Class<?> cls;
 
         try {
+            // 加载.class文件到JVM，并且对类进行解释，执行类中的static块。
             cls = Class.forName(className, isInitialized, getClassLoader());
         } catch (ClassNotFoundException e) {
             LOGGER.error("load class failure", e);
@@ -91,7 +92,7 @@ public final class ClassUtil {
     }
 
     private static void addClass(Set<Class<?>> classSet, String packagePath, String packageName) {
-        // 获取文件夹以及以.class文件结尾的文件
+        // 过滤文件，获取文件夹以及以.class文件结尾的文件
         File[] files = new File(packagePath).listFiles(new FileFilter() {
             @Override
             public boolean accept(File file) {
