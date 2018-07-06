@@ -4,6 +4,7 @@ import top.vkeep.chapter3.service.DemoService;
 import top.vkeep.smart.annotation.Action;
 import top.vkeep.smart.annotation.Controller;
 import top.vkeep.smart.annotation.Inject;
+import top.vkeep.smart.bean.Param;
 import top.vkeep.smart.bean.View;
 
 /**
@@ -15,11 +16,11 @@ import top.vkeep.smart.bean.View;
 @Controller
 public class DemoController {
     @Inject
-    public DemoService demoService;
+    private DemoService demoService;
 
     @Action("get:/index")
-    public View index() {
+    public View index(Param param) {
         demoService.sayHello();
-        return new View("/index.jsp");
+        return new View("index.jsp");
     }
 }
