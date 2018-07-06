@@ -5,7 +5,7 @@ import org.junit.Test;
 
 import java.util.Set;
 
-import static top.vkeep.smart.util.ClassUtil.*;
+import static top.vkeep.smart.util.ClassUtil.getClassSet;
 
 /**
  * <p>@author: zhourl(zhouronglv@gmail.com)
@@ -18,6 +18,8 @@ public class ClassUtilTest {
     @Test
     public void getClassSetTest() {
         Set<Class<?>> classSet = getClassSet("top.vkeep.smart.test.util");
-        Assert.assertEquals(1, classSet.size());
+        Assert.assertEquals(5, classSet.size());
     }
+
+
 }
