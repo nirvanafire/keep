@@ -12,6 +12,7 @@
         <module>chapter2</module>
         <module>chapter3</module>
         <module>smart-framework</module>
+        <module>chapter4</module>
     </modules>
     <packaging>pom</packaging>
 
