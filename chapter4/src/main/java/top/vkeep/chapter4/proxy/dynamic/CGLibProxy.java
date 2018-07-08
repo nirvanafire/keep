@@ -19,6 +19,14 @@ public class CGLibProxy implements MethodInterceptor {
 
     private static CGLibProxy instance = new CGLibProxy();
 
+    private CGLibProxy() {
+        super();
+    }
+
+    public static CGLibProxy getInstance() {
+        return instance;
+    }
+
     /**
      * 获取代理对象
      *
