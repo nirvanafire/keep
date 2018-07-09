@@ -7,13 +7,17 @@
     <!-- 扫描指定包（将带有Component注解的类自动定义为Spring Bean） -->
     <context:component-scan base-package="top.vkeep.chapter4.proxy.aop"/>
 
+    <!-- 自动代理（扫描Bean名称） -->
     <!-- 配置一个代理 -->
     <bean id="greetingProxy" class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
         <!-- 只为后缀是"Impl"的Bean生成代理 -->
-        <property name="beanNames" ref="*Impl"/>
+        <property name="beanNames" value="*Impl"/>
         <!-- 增强 -->
         <property name="interceptorNames" value="greetingAroundAdvice"/>
         <!-- 是否对代理生成策略进行优化 -->
+        <!-- optimize的配置为了代理优化。若为true时，则对代理生成策略进行优化（默认为false）。
+         也就是说，如果该类有接口，就代理接口（使用jdk动态代理）；如果没有接口，就代理类（使用CGLib动态代理）。
+         -->
         <property name="optimize" value="true"/>
     </bean>
 </beans>

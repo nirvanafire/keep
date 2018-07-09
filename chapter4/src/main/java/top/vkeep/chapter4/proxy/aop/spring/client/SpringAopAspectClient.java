@@ -1,4 +1,4 @@
-package top.vkeep.chapter4.proxy.aop.client;
+package top.vkeep.chapter4.proxy.aop.spring.client;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import top.vkeep.chapter4.proxy.aop.GreetingImpl;

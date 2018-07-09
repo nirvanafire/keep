@@ -1,6 +1,7 @@
 package top.vkeep.chapter4.proxy.aop;
 
 import org.springframework.stereotype.Component;
+import top.vkeep.chapter4.proxy.aop.aspectj.annotation.Tag;
 
 /**
  * <p>@author: zhourl(zhouronglv@gmail.com)
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Component;
  **/
 @Component
 public class GreetingImpl implements Greeting {
+    @Tag
     @Override
     public void sayHello(String name) {
         System.out.println("hello! " + name);
