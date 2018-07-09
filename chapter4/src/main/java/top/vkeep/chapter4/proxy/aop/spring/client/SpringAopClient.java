@@ -10,7 +10,7 @@ import top.vkeep.chapter4.proxy.aop.spring.GreetingBeforeAndAfterAdvice;
 /**
  * <p>@author: zhourl(zhouronglv@gmail.com)
  * <p>@description: keep
- * <p>@version: v1.0
+ * <p>@since: v1.0
  * <p>@date: 2018/7/8
  **/
 public class SpringAopClient {

@@ -11,7 +11,7 @@ import java.util.Set;
  * <p>存放Class和Instance（实例）的映射关系
  * <p>@author: zhourl(zhouronglv@gmail.com)
  * <p>@description: keep
- * <p>@version: v1.0
+ * <p>@since: v1.0
  * <p>@date: 2018/7/3
  **/
 public final class BeanHelper {

@@ -18,7 +18,7 @@ import java.util.jar.JarFile;
  * 类操作工具类
  * <p>@author: zhourl(zhouronglv@gmail.com)
  * <p>@description: keep
- * <p>@version: v1.0
+ * <p>@since: v1.0
  * <p>@date: 2018/7/3
  **/
 public final class ClassUtil {

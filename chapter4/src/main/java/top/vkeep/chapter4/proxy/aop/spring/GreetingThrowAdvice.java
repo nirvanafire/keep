@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
  * 统一将异常信息记录到日志中，也可以持久化到数据库中
  * <p>@author: zhourl(zhouronglv@gmail.com)
  * <p>@description: keep
- * <p>@version: v1.0
+ * <p>@since: v1.0
  * <p>@date: 2018-07-08
  **/
 @Component

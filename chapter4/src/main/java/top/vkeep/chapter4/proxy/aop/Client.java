@@ -4,7 +4,7 @@ package top.vkeep.chapter4.proxy.aop;
  * 静态代理、动态代理测试
  * <p>@author: zhourl(zhouronglv@gmail.com)
  * <p>@description: keep
- * <p>@version: v1.0
+ * <p>@since: v1.0
  * <p>@date: 2018/7/8
  **/
 public class Client {

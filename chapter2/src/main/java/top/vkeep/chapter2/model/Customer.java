@@ -4,7 +4,7 @@ package top.vkeep.chapter2.model;
  * 客户
  * <p>@author: zhourl(zhouronglv@gmail.com)
  * <p>@description: keep
- * <p>@version: v1.0
+ * <p>@since: v1.0
  * <p>@date: 2018/7/1
  **/
 public class Customer {

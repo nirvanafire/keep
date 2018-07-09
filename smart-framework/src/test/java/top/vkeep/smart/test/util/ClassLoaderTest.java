@@ -7,7 +7,7 @@ import top.vkeep.smart.test.util.model.ClassLoaderObject;
 /**
  * <p>@author: zhourl(zhouronglv@gmail.com)
  * <p>@description: keep
- * <p>@version: v1.0
+ * <p>@since: v1.0
  * <p>@date: 2018/7/6
  **/
 public class ClassLoaderTest {

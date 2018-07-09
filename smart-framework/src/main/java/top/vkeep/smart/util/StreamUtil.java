@@ -12,7 +12,7 @@ import java.io.InputStreamReader;
  * 流操作工具类
  * <p>@author: zhourl(zhouronglv@gmail.com)
  * <p>@description: keep
- * <p>@version: v1.0
+ * <p>@since: v1.0
  * <p>@date: 2018/7/5
  **/
 public final class StreamUtil {

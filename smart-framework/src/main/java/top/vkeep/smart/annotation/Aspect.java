@@ -6,13 +6,13 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 控制器竹注解
+ * 切面注解
  * <p>@author: zhourl(zhouronglv@gmail.com)
  * <p>@description: keep
- * <p>@since: v1.0
- * <p>@date: 2018/7/3
+ * <p>@since: v1.1
+ * <p>@date: 2018-07-09
  **/
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface Controller {
+public @interface Aspect {
 }
