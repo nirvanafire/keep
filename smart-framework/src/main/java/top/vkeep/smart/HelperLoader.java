@@ -1,9 +1,6 @@
 package top.vkeep.smart;
 
-import top.vkeep.smart.helper.BeanHelper;
-import top.vkeep.smart.helper.ClassHelper;
-import top.vkeep.smart.helper.ControllerHelper;
-import top.vkeep.smart.helper.IocHelper;
+import top.vkeep.smart.helper.*;
 import top.vkeep.smart.util.ClassUtil;
 
 /**
@@ -15,7 +12,11 @@ import top.vkeep.smart.util.ClassUtil;
  **/
 public class HelperLoader {
     public static void init() {
-        Class<?>[] classList = {ClassHelper.class, BeanHelper.class, IocHelper.class, ControllerHelper.class};
+        Class<?>[] classList = {ClassHelper.class,
+                BeanHelper.class,
+                AopHelper.class,
+                IocHelper.class,
+                ControllerHelper.class};
 
         for (Class<?> cls : classList) {
             ClassUtil.loadClass(cls.getName(), true);
