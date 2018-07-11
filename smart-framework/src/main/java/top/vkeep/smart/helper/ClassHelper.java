@@ -101,7 +101,6 @@ public final class ClassHelper {
                 classSet.add(cls);
             }
         }
-
         return classSet;
     }
 }

@@ -39,7 +39,7 @@ public class AopHelper {
 
 
     /**
-     *
+     * 获取@Aspect注解内value（标签）所注解的类集合
      */
     private static Set<Class<?>> createTargetClassSet(Aspect aspect) {
         Set<Class<?>> targetClassSet = new HashSet<>();
@@ -51,12 +51,14 @@ public class AopHelper {
     }
 
     /**
-     * 一个代理类可以对应多个目标类
+     * 一个代理类（切面类）可以对应多个目标类
      */
     private static Map<Class<?>, Set<Class<?>>> createProxyMap() {
         Map<Class<?>, Set<Class<?>>> proxyMap = new HashMap<>();
+        // 获取所有继承或实现当前类的子类或者实现
         Set<Class<?>> proxyClassSet = ClassHelper.getClassSetBySuper(AspectProxy.class);
         for (Class<?> proxyClass : proxyClassSet) {
+            // 校验类上是否有@Aspect注解
             if (proxyClass.isAnnotationPresent(Aspect.class)) {
                 Aspect aspect = proxyClass.getAnnotation(Aspect.class);
                 // 获取指定注解所有Bean Set
@@ -67,6 +69,10 @@ public class AopHelper {
         return proxyMap;
     }
 
+    /**
+     *  代理类需要扩展AspectProxy抽象类，还需要Aspect注解，只有满足这两个条件，
+     *  才能根据Aspect注解中所定义的注解属性去获取注解所对应的目标类结合。
+     */
     private static Map<Class<?>, List<Proxy>> createTargetMap(Map<Class<?>, Set<Class<?>>> proxyMap) throws IllegalAccessException, InstantiationException {
 
         Map<Class<?>, List<Proxy>> targetMap = new HashMap<>();
@@ -88,4 +94,6 @@ public class AopHelper {
         }
         return targetMap;
     }
+
+
 }
