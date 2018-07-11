@@ -53,10 +53,16 @@ public abstract class AspectProxy implements Proxy {
         return true;
     }
 
+    /**
+     *  目标方法被调用前执行
+     */
     public void before(Class<?> cls, Method method, Object[] params) throws Throwable {
 
     }
 
+    /**
+     * 目标方法被调用后执行
+     */
     public void after(Class<?> cls, Method method, Object[] params, Object result) throws Throwable {
 
     }

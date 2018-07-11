@@ -51,6 +51,9 @@ public class ProxyChain {
         return methodParams;
     }
 
+    /**
+     * 执行代理链
+     */
     public Object doProxyChain() throws Throwable {
         Object methodResult;
         if (proxyIndex < proxyList.size()) {
