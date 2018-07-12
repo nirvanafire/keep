@@ -5,4 +5,16 @@
     http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
 
 <display-name>Archetype Created Web Application</display-name>
+
+    <servlet>
+        <!-- Servlet Name -->
+        <servlet-name>hello</servlet-name>
+        <!-- Servlet对应的类 -->
+        <servlet-class>top.vkeep.chapter1.HelloServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>hello</servlet-name>
+        <!-- 匹配的链接 -->
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
 </web-app>
