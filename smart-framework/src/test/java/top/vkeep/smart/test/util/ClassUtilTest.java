@@ -21,5 +21,4 @@ public class ClassUtilTest {
         Assert.assertEquals(5, classSet.size());
     }
 
-
 }
