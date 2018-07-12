@@ -1,7 +1,6 @@
 package top.vkeep.chapter1;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +14,7 @@ import java.util.Date;
  * <p>@since: v1.0
  * <p>@date: 2018/6/30
  **/
-@WebServlet("/hello")
+//@WebServlet("/hello")
 public class HelloServlet extends HttpServlet {
 
     @Override
