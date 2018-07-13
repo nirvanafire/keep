@@ -3,9 +3,11 @@ package top.vkeep.smart.helper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import top.vkeep.smart.annotation.Aspect;
+import top.vkeep.smart.annotation.Service;
 import top.vkeep.smart.proxy.AspectProxy;
 import top.vkeep.smart.proxy.Proxy;
 import top.vkeep.smart.proxy.ProxyManager;
+import top.vkeep.smart.proxy.TransactionProxy;
 
 import java.lang.annotation.Annotation;
 import java.util.*;
@@ -55,6 +57,15 @@ public class AopHelper {
      */
     private static Map<Class<?>, Set<Class<?>>> createProxyMap() {
         Map<Class<?>, Set<Class<?>>> proxyMap = new HashMap<>();
+        addAspectProxy(proxyMap);
+        addTransactionProxy(proxyMap);
+        return proxyMap;
+    }
+
+    /**
+     * 添加普通切面
+     */
+    private static void addAspectProxy(Map<Class<?>, Set<Class<?>>> proxyMap) {
         // 获取所有继承或实现当前类的子类或者实现
         Set<Class<?>> proxyClassSet = ClassHelper.getClassSetBySuper(AspectProxy.class);
         for (Class<?> proxyClass : proxyClassSet) {
@@ -66,7 +77,16 @@ public class AopHelper {
                 proxyMap.put(proxyClass, targetClassSet);
             }
         }
-        return proxyMap;
+
+    }
+
+    /**
+     * 添加事务切面
+     */
+    private static void addTransactionProxy(Map<Class<?>, Set<Class<?>>> proxyMap) {
+        // 获取所有继承或实现当前类的子类或者实现
+        Set<Class<?>> serviceClassSet = ClassHelper.getClassSetBySuper(Service.class);
+        proxyMap.put(TransactionProxy.class, serviceClassSet);
     }
 
     /**
