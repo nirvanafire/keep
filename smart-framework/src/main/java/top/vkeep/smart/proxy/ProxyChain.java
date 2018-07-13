@@ -53,6 +53,9 @@ public class ProxyChain {
 
     /**
      * 执行代理链
+     * 通过proxyIndex来充当代理对象的计数器，若尚未达到proxyList的上限，
+     * 则从proxyList中取出相应的Proxy对象，并调用其doProxy方法。在Proxy接口的实现中提供相应的
+     * 横切逻辑，并调用doProxyChain方法，随后将
      */
     public Object doProxyChain() throws Throwable {
         Object methodResult;
