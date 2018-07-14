@@ -83,6 +83,12 @@ public final class ClassHelper {
     public static Set<Class<?>> getClassSetBySuper(Class<?> superClass) {
         Set<Class<?>> classSet = new HashSet<>();
         for (Class<?> cls : CLASS_SET) {
+            /**
+             * Determines if the class or interface represented by this Class object is either the same as,
+             * or is a superclass or superinterface of, the class or interface represented by the specified Class parameter.
+             *
+             * 确定此Class对象表示的类或接口是否与指定的Class参数表示的类或接口相同，或者是它们的超类或超接口。
+             */
             if (superClass.isAssignableFrom(cls) && !superClass.equals(cls)) {
                 classSet.add(cls);
             }
@@ -97,6 +103,12 @@ public final class ClassHelper {
         Set<Class<?>> classSet = new HashSet<>();
 
         for (Class<?> cls : CLASS_SET) {
+            /**
+             * Returns true if an annotation for the specified type is present on this element, else false.
+             * This method is designed primarily for convenient access to marker annotations.
+             *
+             * 如果此元素上存在指定类型的注释，则返回true，否则返回false。 此方法主要用于方便地访问标记注释。
+             */
             if (cls.isAnnotationPresent(annotationClass)) {
                 classSet.add(cls);
             }
