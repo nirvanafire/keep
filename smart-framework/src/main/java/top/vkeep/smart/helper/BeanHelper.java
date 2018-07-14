@@ -1,5 +1,7 @@
 package top.vkeep.smart.helper;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import top.vkeep.smart.util.ReflectUtil;
 
 import java.util.HashMap;
@@ -15,6 +17,9 @@ import java.util.Set;
  * <p>@date: 2018/7/3
  **/
 public final class BeanHelper {
+
+    private static final Logger LOGGER = LoggerFactory.getLogger(BeanHelper.class);
+
     /**
      * 定义Bean映射（用于存放Bean类与Bean实例的映射关系）
      */
@@ -27,6 +32,9 @@ public final class BeanHelper {
             Object obj = ReflectUtil.newInstance(beanClass);
             BEAN_MAP.put(beanClass, obj);
         }
+
+        LOGGER.debug("BEAN_MAP SIZE: " + BEAN_MAP.size());
+
     }
 
     /**

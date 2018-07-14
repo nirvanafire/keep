@@ -34,6 +34,9 @@ public class AopHelper {
                 Object proxy = ProxyManager.createProxy(targetClass, proxyList);
                 BeanHelper.setBean(targetClass, proxy);
             }
+
+            LOGGER.debug("ProxyMap size: " + proxyMap.size());
+            LOGGER.debug("TargetMap size: " + targetMap.size());
         } catch (Exception e) {
             LOGGER.error("aop failure", e);
         }

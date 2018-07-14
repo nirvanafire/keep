@@ -28,6 +28,8 @@ public final class ClassHelper {
     static {
         String basePackage = ConfigHelper.getAppBasePackage();
         CLASS_SET = ClassUtil.getClassSet(basePackage);
+
+        LOGGER.debug("CLASS_SET SIZE: " + CLASS_SET.size());
     }
 
     /**
