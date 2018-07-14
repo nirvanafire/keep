@@ -89,6 +89,7 @@ public class AopHelper {
     private static void addTransactionProxy(Map<Class<?>, Set<Class<?>>> proxyMap) {
         // 获取所有继承或实现当前类的子类或者实现
         Set<Class<?>> serviceClassSet = ClassHelper.getClassSetBySuper(Service.class);
+        LOGGER.debug("ServiceClassSet Size: " + serviceClassSet.size());
         proxyMap.put(TransactionProxy.class, serviceClassSet);
     }
 
