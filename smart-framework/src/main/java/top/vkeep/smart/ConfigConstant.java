@@ -43,4 +43,8 @@ public interface ConfigConstant {
      * 默认静态文件存放路径
      */
     String APP_ASSERT_PATH = "smart.framework.app.assert_path";
+    /**
+     * 默认上传文件大小
+     */
+    String APP_UPLOAD_LIMIT = "smart.framework.app.upload_limit";
 }
