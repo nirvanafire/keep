@@ -1,6 +1,7 @@
 package top.vkeep.smart.bean;
 
 import top.vkeep.smart.util.CastUtil;
+import top.vkeep.smart.util.CollectionUtil;
 
 import java.util.Map;
 
@@ -30,5 +31,12 @@ public class Param {
      */
     public Map<String, Object> getMap() {
         return paramMap;
+    }
+
+    /**
+     * 验证参数是否为空
+     */
+    public boolean isEmpty() {
+        return CollectionUtil.isEmpty(paramMap);
     }
 }
