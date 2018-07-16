@@ -101,14 +101,14 @@ public final class CastUtil {
     /**
      * 转为boolean型
      */
-    public static boolean caseBoolean(Object obj) {
-        return CastUtil.caseBoolean(obj, false);
+    public static boolean castBoolean(Object obj) {
+        return CastUtil.castBoolean(obj, false);
     }
 
     /**
      * 转为boolean型（提供默认值）
      */
-    public static boolean caseBoolean(Object obj, boolean defaultValue) {
+    public static boolean castBoolean(Object obj, boolean defaultValue) {
         boolean booleanValue = defaultValue;
         if (obj != null) {
             String strValue = castString(obj);
