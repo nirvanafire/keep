@@ -49,50 +49,55 @@ public class DispatcherServlet extends HttpServlet {
 
     @Override
     public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // 获取请求方法与请求路径
-        String requestMethod = request.getMethod().toLowerCase();
-        String requestPath = request.getPathInfo();
 
-        // 过滤favicon.ico请求
-        if (requestPath.equals("/favicon.ico")) {
-            return ;
+        ServletHelper.init(request, response);
+        try {
+            // 获取请求方法与请求路径
+            String requestMethod = request.getMethod().toLowerCase();
+            String requestPath = request.getPathInfo();
+
+            // 过滤favicon.ico请求
+            if (requestPath.equals("/favicon.ico")) {
+                return;
+            }
+
+            // 获取Action处理器
+            Handler handler = ControllerHelper.getHandler(requestMethod, requestPath);
+            if (handler != null) {
+                // 获取Controller类及其Bean实例
+                Class<?> controllerClass = handler.getControllerClass();
+                Object controllerBean = BeanHelper.getBean(controllerClass);
+
+                Param param;
+                if (UploaderHelper.isMultipart(request)) {
+                    param = UploaderHelper.createParam(request);
+                } else {
+                    param = RequestHelper.createParam(request);
+                }
+
+                Object result;
+                // 调用Action方法
+                Method actionMethod = handler.getActionMethod();
+                if (param.isEmpty()) {
+                    result = ReflectUtil.invokeMethod(controllerBean, actionMethod);
+                } else {
+                    result = ReflectUtil.invokeMethod(controllerBean, actionMethod, param);
+                }
+
+                // 处理Action返回值
+                if (result instanceof View) {
+                    // 返回JSP页面
+                    View view = (View) result;
+                    handleViewResult(view, request, response);
+                } else if (result instanceof Data) {
+                    // 返回JSON数据
+                    Data data = (Data) result;
+                    handleDateResult(data, request, response);
+                }
+            }
+        } finally {
+            ServletHelper.destroy();
         }
-
-        // 获取Action处理器
-        Handler handler = ControllerHelper.getHandler(requestMethod, requestPath);
-        if (handler != null) {
-            // 获取Controller类及其Bean实例
-            Class<?> controllerClass = handler.getControllerClass();
-            Object controllerBean = BeanHelper.getBean(controllerClass);
-
-            Param param;
-            if (UploaderHelper.isMultipart(request)) {
-                param = UploaderHelper.createParam(request);
-            } else {
-                param = RequestHelper.createParam(request);
-            }
-
-            Object result;
-            // 调用Action方法
-            Method actionMethod = handler.getActionMethod();
-            if (param.isEmpty()) {
-                result = ReflectUtil.invokeMethod(controllerBean, actionMethod);
-            } else {
-                result = ReflectUtil.invokeMethod(controllerBean, actionMethod, param);
-            }
-
-            // 处理Action返回值
-            if (result instanceof View) {
-                // 返回JSP页面
-                View view = (View) result;
-                handleViewResult(view, request, response);
-            } else if (result instanceof Data) {
-                // 返回JSON数据
-                Data data = (Data) result;
-                handleDateResult(data, request, response);
-            }
-        }
-
     }
 
     /**
