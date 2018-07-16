@@ -74,9 +74,11 @@ public final class UploaderHelper {
                     if (CollectionUtil.isNotEmpty(fileItemList)) {
                         for (FileItem fileItem : fileItemList) {
                             if (fileItem.isFormField()) {
+                                // 表单参数
                                 String fieldValue = fileItem.getString("UTF-8");
                                 formParamList.add(new FormParam(fieldName, fieldValue));
                             } else {
+                                // 文件参数
                                 String fileName = FileUtil.getRealFileName(
                                         new String(fileItem.getName().getBytes(), "UTF-8"));
                                 if (StringUtil.isNotEmpty(fieldName)) {

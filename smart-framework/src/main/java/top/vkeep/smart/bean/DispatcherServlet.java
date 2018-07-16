@@ -24,7 +24,7 @@ import java.util.Map;
  * <p>@author: zhourl(zhouronglv@gmail.com)
  * <p>@description: keep
  * <p>@since: v1.0
- * <p>@date: 2018/7/4
+ * <p>@date: 2018-07-04
  **/
 @WebServlet(urlPatterns = "/*", loadOnStartup = 0)
 public class DispatcherServlet extends HttpServlet {
@@ -95,7 +95,11 @@ public class DispatcherServlet extends HttpServlet {
 
     }
 
-    private void handleViewResult(View view, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    /**
+     * View处理器
+     */
+    private void handleViewResult(View view, HttpServletRequest request, HttpServletResponse response)
+            throws IOException, ServletException {
         String path = view.getPath();
         if (StringUtil.isNotEmpty(path)) {
             if (path.startsWith("/")) {
@@ -107,13 +111,16 @@ public class DispatcherServlet extends HttpServlet {
                     request.setAttribute(entry.getKey(), entry.getValue());
                 }
                 // 转发
-                request.getRequestDispatcher(ConfigHelper.getAppJspPath() + path)
-                        .forward(request, response);
+                request.getRequestDispatcher(ConfigHelper.getAppJspPath() + path).forward(request, response);
             }
         }
     }
 
-    private void handleDateResult(Data data, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    /**
+     * Data处理器
+     */
+    private void handleDateResult(Data data, HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
         Object model = data.getModel();
         if (model != null) {
             response.setContentType("application/json");
