@@ -1,7 +1,7 @@
 create table user (
   id bigint not null AUTO_INCREMENT,
   username varchar(50) not null,
-  password varchar(50) not null,
+  password varchar(200) not null,
   primary key(id)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
