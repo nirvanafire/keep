@@ -100,7 +100,7 @@ public final class PropsUtil {
     public static boolean getBoolean(Properties props, String key, boolean defaultValue) {
         boolean value = defaultValue;
         if (props.containsKey(key)) {
-            value = CastUtil.caseBoolean(props.getProperty(key));
+            value = CastUtil.castBoolean(props.getProperty(key));
         }
         return value;
     }
