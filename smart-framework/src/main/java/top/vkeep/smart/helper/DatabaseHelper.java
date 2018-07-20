@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import top.vkeep.smart.util.CollectionUtil;
 import top.vkeep.smart.util.PropsUtil;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.*;
@@ -46,6 +47,13 @@ public class DatabaseHelper {
         DATA_SOURCE.setUrl(url);
         DATA_SOURCE.setUsername(username);
         DATA_SOURCE.setPassword(password);
+    }
+
+    /**
+     * 获取数据源
+     */
+    public static DataSource getDataSource() {
+        return DATA_SOURCE;
     }
 
     /**
