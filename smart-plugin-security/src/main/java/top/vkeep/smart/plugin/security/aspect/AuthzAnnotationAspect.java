@@ -1,4 +1,4 @@
-package top.vkeep.smart.plugin.security.exception;
+package top.vkeep.smart.plugin.security.aspect;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.PrincipalCollection;
@@ -6,6 +6,7 @@ import org.apache.shiro.subject.Subject;
 import top.vkeep.smart.annotation.Aspect;
 import top.vkeep.smart.annotation.Controller;
 import top.vkeep.smart.plugin.security.annotation.User;
+import top.vkeep.smart.plugin.security.exception.AuthzException;
 import top.vkeep.smart.proxy.AspectProxy;
 
 import java.lang.annotation.Annotation;
