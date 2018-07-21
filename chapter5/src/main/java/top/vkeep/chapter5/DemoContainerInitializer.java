@@ -14,6 +14,9 @@ import java.util.Set;
 public class DemoContainerInitializer implements ServletContainerInitializer {
     @Override
     public void onStartup(Set<Class<?>> c, ServletContext ctx) throws ServletException {
+        for (int i = 0; i < 50; i++) {
+            System.out.println("----------->I: " + i);
+        }
         System.out.println("DemoContainerInitialize Init...");
     }
 }

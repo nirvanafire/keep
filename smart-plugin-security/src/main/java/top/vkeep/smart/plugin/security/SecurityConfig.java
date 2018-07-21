@@ -13,6 +13,9 @@ import top.vkeep.smart.util.ReflectUtil;
  **/
 public final class SecurityConfig {
 
+    private SecurityConfig() {
+    }
+
     public static String getRealms() {
         return ConfigHelper.getString(SecurityConstant.REALMS);
     }

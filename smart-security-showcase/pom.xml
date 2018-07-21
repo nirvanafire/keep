@@ -9,12 +9,11 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>chapter5</artifactId>
+    <artifactId>smart-security-showcase</artifactId>
     <packaging>war</packaging>
 
-    <name>chapter5 Maven Webapp</name>
-    <!-- FIXME change it to the project's website -->
-    <url>http://www.example.com</url>
+    <name>smart-security-showcase Maven Webapp</name>
+    <url>http://www.vkeep.top</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -23,9 +22,11 @@
     </properties>
 
     <dependencies>
+        <!-- Junit -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <version>4.12</version>
             <scope>test</scope>
         </dependency>
         <!-- Servlet -->
@@ -58,59 +59,23 @@
             <version>5.1.33</version>
             <scope>runtime</scope>
         </dependency>
-        <!-- Apache Commons Dbcp2 -->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-dbcp2</artifactId>
-            <version>2.0.1</version>
-        </dependency>
-        <!-- Apache Commons DbUtils -->
-        <dependency>
-            <groupId>commons-dbutils</groupId>
-            <artifactId>commons-dbutils</artifactId>
-            <version>1.6</version>
-        </dependency>
         <!-- 连接池 -->
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
             <version>1.1.10</version>
         </dependency>
-        <!-- SLFJ -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.6.4</version>
-        </dependency>
-        <!-- Shiro -->
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-core</artifactId>
-            <version>1.2.3</version>
-        </dependency>
-        <!-- Shiro Web -->
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-web</artifactId>
-            <version>1.2.3</version>
-        </dependency>
-        <!-- Apache Commons Collections -->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-collections4</artifactId>
-            <version>4.0</version>
-        </dependency>
-
         <dependency>
             <groupId>top.vkeep</groupId>
-            <artifactId>smart-framework</artifactId>
+            <artifactId>smart-plugin-security</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
     <build>
-        <finalName>chapter5</finalName>
+        <finalName>smart-security-showcase</finalName>
         <plugins>
+            <!-- compile -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
