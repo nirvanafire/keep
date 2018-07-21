@@ -2,6 +2,7 @@ package top.vkeep.smart.plugin.security;
 
 /**
  * 常量接口
+ *
  * <p>@author: zhourl(zhouronglv@gmail.com)
  * <p>@description: keep
  * <p>@since: v1.1

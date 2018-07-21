@@ -5,6 +5,7 @@ import top.vkeep.smart.util.ReflectUtil;
 
 /**
  * 从配置文件中获取相关属性
+ *
  * <p>@author: zhourl(zhouronglv@gmail.com)
  * <p>@description: keep
  * <p>@since: v1.1

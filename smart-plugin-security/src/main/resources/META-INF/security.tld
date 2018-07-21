@@ -32,6 +32,49 @@
     </tag>
 
     <tag>
+        <description>获取当前用户的相关信息</description>
+        <name>principal</name>
+        <tag-class>org.apache.shiro.web.tags.PrincipalTag</tag-class>
+        <body-content>JSP</body-content>
+    </tag>
+    
+    <tag>
+        <!-- 判断当前用户是否具有某种角色 -->
+        <name>hasRole</name>
+        <tag-class>org.apache.shiro.web.tags.HasRoleTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+    <tag>
+        <description>判断当前用户是否缺少某种角色</description>
+        <name>lacksRole</name>
+        <tag-class>org.apache.shiro.web.tags.LacksRoleTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <description>判断当前用户是否具有某种权限</description>
+        <name>hasPermission</name>
+        <tag-class>org.apache.shiro.web.tags.HasPermissionTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
         <description>判断当前用户是否拥有其中所有的角色（逗号分隔，表示"与"的关系）</description>
         <name>hasAllRoles</name>
         <tag-class>top.vkeep.smart.plugin.security.tag.HasAllRolesTag</tag-class>

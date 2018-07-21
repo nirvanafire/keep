@@ -13,6 +13,7 @@ import top.vkeep.smart.plugin.security.password.Md5CredentialsMatcher;
  * <p>@date: 2018-07-20
  **/
 public class SmartJdbcRealm extends JdbcRealm {
+
     public SmartJdbcRealm() {
         super.setDataSource(DatabaseHelper.getDataSource());
         super.setAuthenticationQuery(SecurityConfig.getJdbcAuthcQuery());

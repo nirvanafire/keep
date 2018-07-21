@@ -10,6 +10,7 @@ import java.util.List;
 
 /**
  * 判断当前用户是否拥有某一种权限（逗号分隔，表示"或"的关系）
+ *
  * <p>@author: zhourl(zhouronglv@gmail.com)
  * <p>@description: keep
  * <p>@since: v1.1
