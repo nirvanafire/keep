@@ -36,7 +36,7 @@ public class DatabaseHelper {
 
         QUERY_RUNNER  = new QueryRunner();
 
-        Properties conf = PropsUtil.loadProps("config.properties");
+        Properties conf = PropsUtil.loadProps("smart.properties");
         String driver = conf.getProperty("jdbc.driver");
         String url = conf.getProperty("jdbc.url");
         String username = conf.getProperty("jdbc.username");
