@@ -32,6 +32,21 @@ public class ReflectUtil {
     }
 
     /**
+     * 创建实例
+     */
+    public static Object newInstance(String className) {
+        Object instance;
+        try {
+            Class<?> cls = Class.forName(className);
+            instance = cls.newInstance();
+        } catch (Exception e) {
+            LOGGER.error("new instance failure", e);
+            throw new RuntimeException(e);
+        }
+        return instance;
+    }
+
+    /**
      * 执行方法
      */
     public static Object invokeMethod(Object obj, Method method, Object... args) {
@@ -48,9 +63,6 @@ public class ReflectUtil {
 
     /**
      * 设置成员变量的值
-     * @param obj
-     * @param field
-     * @param value
      */
     public static void setField(Object obj, Field field, Object value) {
         try {

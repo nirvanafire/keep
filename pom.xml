@@ -11,8 +11,12 @@
         <module>chapter1</module>
         <module>chapter2</module>
         <module>chapter3</module>
-        <module>smart-framework</module>
         <module>chapter4</module>
+        <module>chapter5</module>
+        <module>smart-framework</module>
+        <module>smart-plugin-security</module>
+        <module>smart-security-showcase</module>
+        <module>smart-plugin-security-showcase</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -108,17 +112,6 @@
                         <skipTests>true</skipTests>
                     </configuration>
                 </plugin>
-                <!-- Tomcat -->
-                <plugin>
-                    <groupId>org.apache.tomcat.maven</groupId>
-                    <artifactId>tomcat7-maven-plugin</artifactId>
-                    <version>2.2</version>
-                    <configuration>
-                        <path>/${project.artifactId}</path>
-                        <port>8181</port>
-                    </configuration>
-                </plugin>
-
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
                     <version>3.0.0</version>

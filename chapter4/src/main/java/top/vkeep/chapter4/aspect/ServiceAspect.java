@@ -3,7 +3,7 @@ package top.vkeep.chapter4.aspect;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import top.vkeep.smart.annotation.Aspect;
-import top.vkeep.smart.annotation.Controller;
+import top.vkeep.smart.annotation.Service;
 import top.vkeep.smart.proxy.AspectProxy;
 
 import java.lang.reflect.Method;
@@ -15,9 +15,9 @@ import java.lang.reflect.Method;
  * <p>@since: v1.1
  * <p>@date: 2018-07-10
  **/
-@Aspect(Controller.class)
-public class ControllerAspect extends AspectProxy {
-    private static final Logger LOGGER = LoggerFactory.getLogger(ControllerAspect.class);
+@Aspect(Service.class)
+public class ServiceAspect extends AspectProxy {
+    private static final Logger LOGGER = LoggerFactory.getLogger(ServiceAspect.class);
 
     private long begin;
 

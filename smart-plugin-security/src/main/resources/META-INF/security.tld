@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib xmlns="http://java.sun.com/xml/ns/javaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+        http://java.sun.com/xml/ns/javaee/web-jsptaglibrary_2_1.xsd"
+        version="2.1">
+
+    <description>Security JSP Tag</description>
+    <tlib-version>1.1</tlib-version>
+    <short-name>security</short-name>
+    <uri>/security</uri>
+
+    <tag>
+        <description>判断当前用户是否已登录（包括：已认证与已记住）</description>
+        <name>user</name>
+        <tag-class>org.apache.shiro.web.tags.UserTag</tag-class>
+        <body-content>JSP</body-content>
+    </tag>
+
+    <tag>
+        <description>判断当前用户是否未登录（包括：未认证或未记住，即"访客"身份）</description>
+        <name>guest</name>
+        <tag-class>org.apache.shiro.web.tags.GuestTag</tag-class>
+        <body-content>JSP</body-content>
+    </tag>
+    
+    <tag>
+        <description>判断当前用户是否已认证通过（不包括已记住）</description>
+        <name>authenticated</name>
+        <tag-class>org.apache.shiro.web.tags.AuthenticatedTag</tag-class>
+        <body-content>JSP</body-content>
+    </tag>
+
+    <tag>
+        <description>获取当前用户的相关信息</description>
+        <name>principal</name>
+        <tag-class>org.apache.shiro.web.tags.PrincipalTag</tag-class>
+        <body-content>JSP</body-content>
+    </tag>
+    
+    <tag>
+        <!-- 判断当前用户是否具有某种角色 -->
+        <name>hasRole</name>
+        <tag-class>org.apache.shiro.web.tags.HasRoleTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+    <tag>
+        <description>判断当前用户是否缺少某种角色</description>
+        <name>lacksRole</name>
+        <tag-class>org.apache.shiro.web.tags.LacksRoleTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <description>判断当前用户是否具有某种权限</description>
+        <name>hasPermission</name>
+        <tag-class>org.apache.shiro.web.tags.HasPermissionTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <description>判断当前用户是否拥有其中所有的角色（逗号分隔，表示"与"的关系）</description>
+        <name>hasAllRoles</name>
+        <tag-class>top.vkeep.smart.plugin.security.tag.HasAllRolesTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <description>判断当前用户是否拥有某一种权限（逗号分隔，表示"或"的关系）</description>
+        <name>hasAnyPermission</name>
+        <tag-class>top.vkeep.smart.plugin.security.tag.HasAnyPermissionsTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <description>判断当前用户是否拥有某一种权限（逗号分隔，表示"或"的关系）</description>
+        <name>hasAllPermissions</name>
+        <tag-class>top.vkeep.smart.plugin.security.tag.HasAllPermissionsTag</tag-class>
+        <body-content>JSP</body-content>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+</taglib>

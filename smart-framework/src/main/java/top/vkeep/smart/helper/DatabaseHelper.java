@@ -3,20 +3,16 @@ package top.vkeep.smart.helper;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 import org.apache.commons.dbutils.QueryRunner;
-import org.apache.commons.dbutils.handlers.BeanHandler;
-import org.apache.commons.dbutils.handlers.BeanListHandler;
-import org.apache.commons.dbutils.handlers.MapListHandler;
+import org.apache.commons.dbutils.handlers.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import top.vkeep.smart.util.CollectionUtil;
 import top.vkeep.smart.util.PropsUtil;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 /**
  * 数据库操作助手类
@@ -40,7 +36,7 @@ public class DatabaseHelper {
 
         QUERY_RUNNER  = new QueryRunner();
 
-        Properties conf = PropsUtil.loadProps("config.properties");
+        Properties conf = PropsUtil.loadProps("smart.properties");
         String driver = conf.getProperty("jdbc.driver");
         String url = conf.getProperty("jdbc.url");
         String username = conf.getProperty("jdbc.username");
@@ -51,6 +47,13 @@ public class DatabaseHelper {
         DATA_SOURCE.setUrl(url);
         DATA_SOURCE.setUsername(username);
         DATA_SOURCE.setPassword(password);
+    }
+
+    /**
+     * 获取数据源
+     */
+    public static DataSource getDataSource() {
+        return DATA_SOURCE;
     }
 
     /**
@@ -251,6 +254,32 @@ public class DatabaseHelper {
             }
 
         }
+    }
+
+    public static String query(String sql, String param) {
+        String result;
+        try {
+            Connection conn = getConnection();
+            result = QUERY_RUNNER.query(conn, sql, new ScalarHandler<String>(), param);
+        } catch (SQLException e) {
+            LOGGER.error("execute query failure", e);
+            throw new RuntimeException(e);
+        }
+        return result;
+    }
+
+    public static Set<String> querySet(String sql, String param) {
+        Set<String> result;
+        try {
+            Connection conn = getConnection();
+
+            List<String> list = QUERY_RUNNER.query(conn, sql, new ColumnListHandler<String>(), param);
+            result = new HashSet<>(list);
+        } catch (SQLException e) {
+            LOGGER.error("execute query set failure", e);
+            throw new RuntimeException(e);
+        }
+        return result;
     }
 
     /**
