@@ -5,7 +5,6 @@ import top.vkeep.smart.annotation.Action;
 import top.vkeep.smart.annotation.Controller;
 import top.vkeep.smart.annotation.Inject;
 import top.vkeep.smart.bean.Data;
-import top.vkeep.smart.bean.Param;
 
 /**
  * <p>@author: zhourl(zhouronglv@gmail.com)
@@ -20,7 +19,8 @@ public class DemoController {
     private DemoService demoService;
 
     @Action("get:/demo")
-    public Data demo(Param param) {
+    public Data demo() {
+        // 如果请求没有参数，请务必不设置Param param参数
         System.out.println("DemoController... demoService is not null:" + (demoService != null));
         demoService.demo();
         return new Data("Hello");
