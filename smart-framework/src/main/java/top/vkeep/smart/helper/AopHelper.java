@@ -50,6 +50,7 @@ public class AopHelper {
         Set<Class<?>> targetClassSet = new HashSet<>();
         Class<? extends Annotation> annotation = aspect.value();
         if (annotation != null && !annotation.equals(Aspect.class)) {
+            // 获取应用包名下带有某个注解的所有类
             targetClassSet.addAll(ClassHelper.getClassSetByAnnotation(annotation));
         }
         return targetClassSet;
