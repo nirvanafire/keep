@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--
+        定义IoC容器扫描路径，即这里定义的top.vkeep.ws，在这个包下面（包括所有子包）凡是带有Component注解的类
+        都会扫描到Spring IoC容器中
+    -->
+    <context:component-scan base-package="top.vkeep.soap_cxf"/>
+
+    <!--
+        引入spring-cxf.xml文件，用于配置CXF相关配置。
+    -->
+    <!--<import resource="spring-cxf.xml"/>-->
+
+    <import resource="spring-cxf-security-server.xml"/>
+</beans>

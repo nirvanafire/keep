@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 通过jaxws:server发布WS -->
+    <!--<jaxws:server id="helloService" address="/soap/hello">
+        <jaxws:serviceBean>
+            <ref bean="helloServiceImpl"/>
+        </jaxws:serviceBean>
+    </jaxws:server>-->
+
+    <!-- 通过jaxws:endpoint发布WS -->
+    <!--<jaxws:endpoint id="helloService1" implementor="#helloServiceImpl" address="/soap/hello1"/>-->
+
+    <!-- 通过simple发布WS -->
+    <!--<simple:server id="helloService2" serviceClass="#helloService" address="/soap/hello2">
+        <simple:serviceBean>
+            <ref bean="#helloServiceImpl"/>
+        </simple:serviceBean>
+    </simple:server>-->
+</beans>

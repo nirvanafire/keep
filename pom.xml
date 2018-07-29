@@ -17,6 +17,7 @@
         <module>smart-plugin-security</module>
         <module>smart-security-showcase</module>
         <module>smart-plugin-security-showcase</module>
+        <module>chapter5-cxf</module>
     </modules>
     <packaging>pom</packaging>
 
